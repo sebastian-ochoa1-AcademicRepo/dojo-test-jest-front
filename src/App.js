@@ -32,7 +32,7 @@ const App = () => {
   return (
     <div className="App ">
       <div className='flex flex-col items-center relative z-10 h-auto p-8 py-20'>
-        <h1 className='mb-14 text-4xl font-semibold text-center text-gray-800'>Code_Breaker</h1>
+        <h1 id='codeTittle' className='mb-14 text-4xl font-semibold text-center text-gray-800'>Code_Breaker</h1>
         <div className='flex flex-row'>
           <input id='code_input'
             className='block w-auto h-14 px-4 py-3 mb-2 border border-2 
@@ -49,18 +49,18 @@ const App = () => {
           >SEND</button>
         </div>
         {(isNaN(code) || code.length>4 || code.includes('.')) &&
-        < span className='h-0 text-red-700'>Por favor solo dígite números enteros de 4 digitos</span>
+        < span id='errorMessage' className='h-0 text-red-700'>Por favor solo dígite números enteros de 4 digitos</span>
         }
       <div className='flex flex-row mb-3 mt-8'>
         <h1 className='text-3xl font-extrabold text-center text-gray-700'>Resultado:</h1>
         {(result) &&
-          <h1 className='ml-5 text-3xl font-extrabold text-center text-gray-900'>{result}</h1>
+          <h1 id='result' className='ml-5 text-3xl font-extrabold text-center text-gray-900'>{result}</h1>
         }
       </div>
       <div className='flex flex-row mb-3 mt-1'>
         <h1 className='text-xl font-extrabold text-center text-gray-700'>Attemps</h1>
-        {(attemps!=0) &&
-          <h1 className='ml-5 text-xl font-extrabold text-center text-gray-700'>{attemps}</h1>
+        {(attemps!==0) &&
+          <h1 id='attemps' className='ml-5 text-xl font-extrabold text-center text-gray-700'>{attemps}</h1>
         }
       </div>
       <button id='reset_button' 
